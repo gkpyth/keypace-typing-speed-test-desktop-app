@@ -5,11 +5,10 @@ A desktop typing speed test app built with Python and CustomTkinter; part of per
 ## Features
 - Real-time WPM and accuracy tracking
 - Character-by-character highlighting (green for correct, red for incorrect)
-- Line-by-line text scrolling — always see what's coming
+- Line-by-line text scrolling — always see what's coming and one line above
 - Selectable test durations: 1, 2, 3, 4, or 5 minutes
 - Timer starts on first printable keystroke
 - Backspace support with accurate accuracy recalculation
-- Support auto-scrolling to the next line when the end of the second line is reached
 - Keeps one line above visible for easy reference
 - Persistent leaderboard (top 10 scores saved locally)
 - Dark and light mode toggle
