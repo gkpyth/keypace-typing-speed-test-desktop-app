@@ -1,3 +1,34 @@
 {
-    "leaderboard": []
+    "leaderboard": [
+        {
+            "initials": "GAK",
+            "wpm": 81,
+            "accuracy": 100,
+            "duration": "2:00"
+        },
+        {
+            "initials": "LAG",
+            "wpm": 77,
+            "accuracy": 100,
+            "duration": "2:00"
+        },
+        {
+            "initials": "SWN",
+            "wpm": 73,
+            "accuracy": 99,
+            "duration": "2:00"
+        },
+        {
+            "initials": "TCM",
+            "wpm": 73,
+            "accuracy": 100,
+            "duration": "1:00"
+        },
+        {
+            "initials": "ADM",
+            "wpm": 72,
+            "accuracy": 100,
+            "duration": "1:00"
+        }
+    ]
 }

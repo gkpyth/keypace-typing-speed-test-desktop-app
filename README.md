@@ -9,6 +9,8 @@ A desktop typing speed test app built with Python and CustomTkinter; part of per
 - Selectable test durations: 1, 2, 3, 4, or 5 minutes
 - Timer starts on first printable keystroke
 - Backspace support with accurate accuracy recalculation
+- Support auto-scrolling to the next line when the end of the second line is reached
+- Keeps one line above visible for easy reference
 - Persistent leaderboard (top 10 scores saved locally)
 - Dark and light mode toggle
 - Refresh button to load a new passage before starting

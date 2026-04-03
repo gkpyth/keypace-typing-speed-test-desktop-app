@@ -174,7 +174,8 @@ class TypingSpeedApp(ctk.CTk):
                 for col, value in enumerate(
                         [i + 1, entry["initials"], entry["wpm"], f"{entry['accuracy']}%", entry["duration"]]):
                     ctk.CTkLabel(row_frame, text=str(value), font=ctk.CTkFont(size=13),
-                                 text_color=C["text_primary"]).grid(row=0, column=col, padx=10, pady=6)
+                                 text_color=C["text_primary"], width=60, anchor="center").grid(row=0, column=col,
+                                                                                               padx=10, pady=6)
 
     # Add this method to handle the duration toggle button click
     def set_duration(self, seconds):
@@ -234,6 +235,7 @@ class TypingSpeedApp(ctk.CTk):
         self.results_accuracy_label.configure(text=f"🎯 {self.final_accuracy}%")
         self.results_time_label.configure(text=f"Time: {self.final_duration}")
         self.unbind("<Key>")
+        self.focus()
         self.show_results()
 
     def cancel_test(self):
@@ -405,11 +407,16 @@ class TypingSpeedApp(ctk.CTk):
                 # Find the first character of visual line 2
                 line2_char = self.passage_text.index(f"@0,{line1_y + line1_height + 1}")
                 line2_pos = int(line2_char.split(".")[1])
-                # If current position has reached or passed line 2, shift the window
-                if widget_pos >= line2_pos and line2_pos > 0:
-                    new_offset = self.chunk_offset + line2_pos
-                    if new_offset < len(self.displayed_text):
-                        self.load_chunk(new_offset)
+                line2_info = self.passage_text.dlineinfo(line2_char)
+                # Find the first character of visual line 3
+                if line2_info:
+                    line3_char = self.passage_text.index(f"@0,{line2_info[1] + line2_info[3] + 1}")
+                    line3_pos = int(line3_char.split(".")[1])
+                    # Trigger scroll at line 3 but advance by only one line (line2_pos)
+                    if widget_pos >= line3_pos and line3_pos > 0:
+                        new_offset = self.chunk_offset + line2_pos
+                        if new_offset < len(self.displayed_text):
+                            self.load_chunk(new_offset)
         except Exception:
             pass
 
